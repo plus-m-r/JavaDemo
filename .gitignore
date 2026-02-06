@@ -1,0 +1,177 @@
+# ============================
+# Java Project .gitignore
+# ============================
+
+# ----------------------------
+# Build Tool: Maven
+# ----------------------------
+# Maven build directory
+target/
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Maven toolchains
+.mvn/toolchains.xml
+
+# Maven configuration
+.mvn/settings.xml
+
+# ----------------------------
+# IDEs and Editors
+# ----------------------------
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# NetBeans
+nbproject/
+nbbuild/
+dist/
+nbdist/
+
+# Visual Studio Code
+.vscode/
+
+# Sublime Text
+*.sublime-workspace
+
+# ----------------------------
+# Operating System Files
+# ----------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Linux
+*~
+
+# ----------------------------
+# Log Files
+# ----------------------------
+logs/
+*.log
+*.LOG
+log/
+
+# ----------------------------
+# Database Files
+# ----------------------------
+*.db
+*.lck
+*.mdb
+*.sqlite
+*.sqlite3
+
+# PostgreSQL
+postgres-data/
+pgdata/
+
+# ----------------------------
+# Temporary Files
+# ----------------------------
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# ----------------------------
+# Binary Files
+# ----------------------------
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.tar.bz2
+*.7z
+
+# ----------------------------
+# Dependency Files
+# ----------------------------
+# Maven dependencies (should not be committed)
+# Note: If you're using Maven Wrapper, the wrapper JAR is committed
+
+# ----------------------------
+# Test Coverage
+# ----------------------------
+jacoco.exec
+*.exec
+coverage/
+
+# ----------------------------
+# Environment Variables
+# ----------------------------
+.env
+.env.local
+.env.*.local
+
+# ----------------------------
+# Spring Boot Specific
+# ----------------------------
+# Spring Boot devtools
+.spring-boot-devtools.properties
+
+# ----------------------------
+# Project Specific
+# ----------------------------
+# Nacos server files
+nacos/
+nacos-server-*.tar.gz
+
+# Maven installation
+apache-maven-*/
+apache-maven-*.tar.gz
+
+# Spring Boot project template
+spring-boot-project.zip
+
+# Wget logs
+wget-log
+
+# Derby database files
+derby.log
+
+# Work directory
+work/
+
+# ----------------------------
+# Miscellaneous
+# ----------------------------
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+
+# Local configuration files
+*.local
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============================
+# End of .gitignore
+# ============================

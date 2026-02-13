@@ -1,0 +1,12 @@
+pluginManagement {
+    plugins {
+        id 'org.springframework.boot' version '3.5.0'
+    }
+}
+
+rootProject.name = 'demo'
+
+include 'demo-common'
+include 'demo-user-service'
+include 'demo-gateway'
+include 'demo-hello-service'

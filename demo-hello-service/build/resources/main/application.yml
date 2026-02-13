@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: demo-hello-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+        import-check:
+          enabled: false
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+    compatibility-verifier:
+      enabled: false
+
+server:
+  port: 8082
+

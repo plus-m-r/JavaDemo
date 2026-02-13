@@ -1,0 +1,65 @@
+// Gateway service module
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.10'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '21'
+    targetCompatibility = '21'
+}
+
+repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public'
+    }
+    mavenCentral()
+}
+
+// Configure dependency management
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.boot:spring-boot-dependencies:3.5.10'
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2022.0.0'
+        mavenBom 'com.alibaba.cloud:spring-cloud-alibaba-dependencies:2022.0.0.0-RC2'
+    }
+}
+
+dependencies {
+    // Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+    
+    // Spring Cloud Alibaba
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
+    
+    // Reactor Netty (explicit version for compatibility)
+    implementation 'io.netty:netty-all:4.1.110.Final'
+    implementation 'io.projectreactor.netty:reactor-netty-core:1.1.17'
+    implementation 'io.projectreactor.netty:reactor-netty-http:1.1.17'
+    
+    // Spring Boot Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// Configure the bootJar task
+bootJar {
+    enabled = true
+    mainClass = 'com.example.gateway.GatewayApplication'
+}
+
+// Disable the jar task since we're building a bootable jar
+jar {
+    enabled = false
+}
+
+test {
+    useJUnitPlatform()
+}

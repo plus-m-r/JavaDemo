@@ -2,6 +2,8 @@
 
 plugins {
     id 'java'
+    id 'org.springframework.boot' version '3.0.10' apply false
+    id 'io.spring.dependency-management' version '1.1.5' apply false
 }
 
 group = 'com.example'
@@ -12,11 +14,31 @@ java {
     targetCompatibility = '21'
 }
 
-repositories {
-    maven {
-        url 'https://maven.aliyun.com/repository/public'
+allprojects {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        mavenCentral()
     }
-    mavenCentral()
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.boot:spring-boot-dependencies:3.0.10'
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2022.0.0'
+            mavenBom 'com.alibaba.cloud:spring-cloud-alibaba-dependencies:2022.0.0.0-RC2'
+        }
+    }
+    
+    // Only apply spring-boot plugin to service modules
+    if (project.name in ['demo-gateway', 'demo-user-service', 'demo-hello-service']) {
+        apply plugin: 'org.springframework.boot'
+    }
 }
 
 

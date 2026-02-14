@@ -19,9 +19,7 @@ spring:
         file-extension: yml
         import-check:
           enabled: false
-    sentinel:
-      transport:
-        dashboard: localhost:8080
+
     compatibility-verifier:
       enabled: false
 

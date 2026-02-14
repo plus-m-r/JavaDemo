@@ -5,23 +5,32 @@ spring:
     gateway:
       routes:
         - id: user-service
-          uri: lb://demo-user-service
+          uri: http://localhost:8081
           predicates:
             - Path=/user/**
         - id: hello-service
-          uri: lb://demo-hello-service
+          uri: http://localhost:8082
           predicates:
             - Path=/hello/**
+    compatibility-verifier:
+      enabled: false
     nacos:
       discovery:
         server-addr: localhost:8848
+        namespace: public
+        group: DEFAULT_GROUP
       config:
         server-addr: localhost:8848
+        namespace: public
+        group: DEFAULT_GROUP
         file-extension: yml
-        import-check:
-          enabled: false
-    compatibility-verifier:
-      enabled: false
+
+# Enable Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
 
 server:
   port: 8080

@@ -1,9 +1,7 @@
 // Gateway service module
 
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.5.10'
-    id 'io.spring.dependency-management' version '1.1.5'
+    id 'org.springframework.boot' version '3.0.10'
 }
 
 group = 'com.example'
@@ -21,15 +19,6 @@ repositories {
     mavenCentral()
 }
 
-// Configure dependency management
-dependencyManagement {
-    imports {
-        mavenBom 'org.springframework.boot:spring-boot-dependencies:3.5.10'
-        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2022.0.0'
-        mavenBom 'com.alibaba.cloud:spring-cloud-alibaba-dependencies:2022.0.0.0-RC2'
-    }
-}
-
 dependencies {
     // Spring Boot
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
@@ -37,13 +26,13 @@ dependencies {
     
     // Spring Cloud Alibaba
     implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'
-    implementation 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
     
-    // Reactor Netty (explicit version for compatibility)
-    implementation 'io.netty:netty-all:4.1.110.Final'
-    implementation 'io.projectreactor.netty:reactor-netty-core:1.1.17'
-    implementation 'io.projectreactor.netty:reactor-netty-http:1.1.17'
+    // Spring Cloud
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    implementation 'org.springframework.cloud:spring-cloud-starter-loadbalancer'
+    
+    // Spring Boot Actuator
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     
     // Spring Boot Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

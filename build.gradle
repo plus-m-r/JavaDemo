@@ -1,17 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 plugins {
-    id 'java'
-    id 'org.springframework.boot' version '3.0.10' apply false
     id 'io.spring.dependency-management' version '1.1.5' apply false
-}
-
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-
-java {
-    sourceCompatibility = '21'
-    targetCompatibility = '21'
 }
 
 allprojects {
@@ -29,16 +19,12 @@ subprojects {
     
     dependencyManagement {
         imports {
-            mavenBom 'org.springframework.boot:spring-boot-dependencies:3.0.10'
+            mavenBom 'org.springframework.boot:spring-boot-dependencies:4.0.2'
             mavenBom 'org.springframework.cloud:spring-cloud-dependencies:2022.0.0'
             mavenBom 'com.alibaba.cloud:spring-cloud-alibaba-dependencies:2022.0.0.0-RC2'
         }
     }
-    
-    // Only apply spring-boot plugin to service modules
-    if (project.name in ['demo-gateway', 'demo-user-service', 'demo-hello-service']) {
-        apply plugin: 'org.springframework.boot'
-    }
 }
+
 
 

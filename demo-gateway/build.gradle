@@ -1,7 +1,7 @@
 // Gateway service module
 
 plugins {
-    id 'org.springframework.boot' version '3.0.10'
+    id 'org.springframework.boot' version '4.0.2'
 }
 
 group = 'com.example'
@@ -10,13 +10,6 @@ version = '0.0.1-SNAPSHOT'
 java {
     sourceCompatibility = '21'
     targetCompatibility = '21'
-}
-
-repositories {
-    maven {
-        url 'https://maven.aliyun.com/repository/public'
-    }
-    mavenCentral()
 }
 
 dependencies {

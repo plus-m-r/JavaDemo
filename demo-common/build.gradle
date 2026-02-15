@@ -13,17 +13,10 @@ java {
     targetCompatibility = '21'
 }
 
-repositories {
-    maven {
-        url 'https://maven.aliyun.com/repository/public'
-    }
-    mavenCentral()
-}
-
 // Configure dependency management
 dependencyManagement {
     imports {
-        mavenBom 'org.springframework.boot:spring-boot-dependencies:3.5.10'
+        mavenBom 'org.springframework.boot:spring-boot-dependencies:4.0.2'
     }
 }
 
